@@ -84,14 +84,14 @@
         <!-- Cards -->
         <section class="n-section" aria-labelledby="section-cards">
             <h2 id="section-cards" class="n-heading-2 n-mb-4">Cards</h2>
-            <div class="n-grid n-grid-2">
+            <div class="n-grid-2">
                 <div class="n-card">
-                    <h3 class="heading-3">Card Title 1</h3>
-                    <p class="paragraph">This is a simple card with some content.</p>
+                    <h3 class="n-heading-3">Rounded Card</h3>
+                    <p class="n-paragraph">This is a card with 2px rounded corners, matching the Numix theme standard.</p>
                 </div>
                 <div class="n-card n-card-square">
-                    <h3 class="heading-3">Card Title 2</h3>
-                    <p class="paragraph">This is a square card.</p>
+                    <h3 class="n-heading-3">Square Card</h3>
+                    <p class="n-paragraph">This is a square card with no border radius.</p>
                 </div>
             </div>
         </section>
@@ -151,20 +151,108 @@
         <!-- Typography -->
         <section class="n-section" aria-labelledby="section-typography">
             <h2 id="section-typography" class="n-heading-2 n-mb-4">Typography</h2>
-            
+
             <h1 class="n-heading-1">Heading 1</h1>
             <h2 class="n-heading-2">Heading 2</h2>
             <h3 class="n-heading-3">Heading 3</h3>
             <h4 class="n-heading-4">Heading 4</h4>
-            
+
             <p class="n-lead">This is a lead paragraph introducing content.</p>
             <p class="n-paragraph">This is a standard paragraph used for body text. The line height and font size aim to optimize readability across devices.</p>
             <p class="n-small-text">This is small text, used for captions or secondary information.</p>
-            
+
             <blockquote class="n-blockquote">
                 <p>"The best way to predict the future is to invent it."</p>
                 <footer class="n-blockquote-footer">Alan Kay</footer>
             </blockquote>
+        </section>
+
+        <!-- Links & Status Colors -->
+        <section class="n-section" aria-labelledby="section-links">
+            <h2 id="section-links" class="n-heading-2 n-mb-4">Links & Status Colors</h2>
+
+            <div class="n-card n-mb-4">
+                <h3 class="n-heading-3">Links</h3>
+                <p class="n-paragraph">
+                    <a href="#" class="n-link">This is a standard link</a> with Numix theme colors.
+                    Links automatically inherit the theme's link color (<code>#fc6f5d</code>).
+                </p>
+            </div>
+
+            <div class="n-card n-mb-4">
+                <h3 class="n-heading-3">Status Color Text</h3>
+                <p class="n-text-info n-mb-4">This is informational text using the info color.</p>
+                <p class="n-text-success n-mb-4">This is success text using the success color.</p>
+                <p class="n-text-warning n-mb-4">This is warning text using the warning color.</p>
+                <p class="n-text-error">This is error text using the error color.</p>
+            </div>
+
+            <div class="n-card">
+                <h3 class="n-heading-3">Status Background Badges</h3>
+                <div class="n-button-group">
+                    <span class="n-bg-info" style="padding: 0.5rem 1rem; border-radius: 2px;">Info Badge</span>
+                    <span class="n-bg-success" style="padding: 0.5rem 1rem; border-radius: 2px;">Success Badge</span>
+                    <span class="n-bg-warning" style="padding: 0.5rem 1rem; border-radius: 2px;">Warning Badge</span>
+                    <span class="n-bg-error" style="padding: 0.5rem 1rem; border-radius: 2px;">Error Badge</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tooltips -->
+        <section class="n-section" aria-labelledby="section-tooltips">
+            <h2 id="section-tooltips" class="n-heading-2 n-mb-4">Tooltips</h2>
+
+            <div class="n-card">
+                <p class="n-paragraph n-mb-4">Hover over the buttons below to see tooltips in different positions:</p>
+
+                <div class="n-button-group">
+                    <div class="n-tooltip">
+                        <button class="n-button n-button-primary">Top Tooltip</button>
+                        <span class="n-tooltip-text">This tooltip appears on top</span>
+                    </div>
+
+                    <div class="n-tooltip n-tooltip-bottom">
+                        <button class="n-button n-button-primary">Bottom Tooltip</button>
+                        <span class="n-tooltip-text">This tooltip appears on bottom</span>
+                    </div>
+
+                    <div class="n-tooltip n-tooltip-left">
+                        <button class="n-button n-button-secondary">Left Tooltip</button>
+                        <span class="n-tooltip-text">This tooltip appears on left</span>
+                    </div>
+
+                    <div class="n-tooltip n-tooltip-right">
+                        <button class="n-button n-button-secondary">Right Tooltip</button>
+                        <span class="n-tooltip-text">This tooltip appears on right</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Color Palette Reference -->
+        <section class="n-section" aria-labelledby="section-palette">
+            <h2 id="section-palette" class="n-heading-2 n-mb-4">Numix Color Palette</h2>
+
+            <div class="n-card">
+                <h3 class="n-heading-3 n-mb-4">From Official Numix GTK Theme</h3>
+                <div class="n-grid-2">
+                    <div>
+                        <h4 class="n-heading-4">Primary Colors</h4>
+                        <p class="n-small-text"><strong>Accent:</strong> #f0544c</p>
+                        <p class="n-small-text"><strong>Background:</strong> #dedede (light) / #444444 (dark)</p>
+                        <p class="n-small-text"><strong>Base:</strong> #ffffff (light) / #333333 (dark)</p>
+                        <p class="n-small-text"><strong>Text:</strong> #333333 (light) / #eeeeee (dark)</p>
+                    </div>
+                    <div>
+                        <h4 class="n-heading-4">Status Colors</h4>
+                        <p class="n-small-text"><strong>Info:</strong> #03a9f4</p>
+                        <p class="n-small-text"><strong>Success:</strong> #4caf50</p>
+                        <p class="n-small-text"><strong>Warning:</strong> #ef6c00</p>
+                        <p class="n-small-text"><strong>Error:</strong> #f44336</p>
+                        <p class="n-small-text"><strong>Link:</strong> #fc6f5d</p>
+                    </div>
+                </div>
+            </div>
         </section>
     </main>
     <script src="js/numix-ui.js"></script>

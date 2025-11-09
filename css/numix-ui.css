@@ -12,61 +12,98 @@
 
 /* Light Theme */
 :root {
+    /* Base Colors - from Numix GTK Theme */
     --background: #dedede;
+    --base: #ffffff;
     --card: #ffffff;
-    --text-primary: #333;
-    --text-secondary: #555;
+    --text-primary: #333333;
+    --text-secondary: #555555;
     --accent: #f0544c;
-    --border: #dcdcdc;
+    --selected-bg: #f0544c;
+    --selected-fg: #ffffff;
+    --border: rgba(0, 0, 0, 0.06);
+    --button-border: rgba(0, 0, 0, 0.1);
     --input-focus-shadow: rgba(240, 84, 76, 0.2);
     --disabled-opacity: 0.5;
     --disabled-cursor: not-allowed;
-  
-    /* Alerts */
-    --alert-success-bg: #e6f4eb;
-    --alert-success-text: #155724;
-    --alert-success-border: #c3e6cb;
-  
-    --alert-info-bg: #e5f6fd;
-    --alert-info-text: #0c4080;
-    --alert-info-border: #b8e1f3;
-  
-    --alert-warning-bg: #fff3cd;
-    --alert-warning-text: #856404;
-    --alert-warning-border: #ffeeba;
-  
-    --alert-danger-bg: #f8d7da;
-    --alert-danger-text: #721c24;
-    --alert-danger-border: #f5c6cb;
+    --roundness: 2px;
+    --spacing: 5px;
+
+    /* Tooltip Colors */
+    --tooltip-bg: #444444;
+    --tooltip-fg: #eeeeee;
+
+    /* Status Colors - from Numix GTK Theme */
+    --color-info: #03a9f4;
+    --color-warning: #ef6c00;
+    --color-error: #f44336;
+    --color-success: #4caf50;
+    --color-question: #673ab7;
+    --color-link: #fc6f5d;
+
+    /* Alerts - Derived from status colors */
+    --alert-success-bg: #e8f5e9;
+    --alert-success-text: #2e7d32;
+    --alert-success-border: #4caf50;
+
+    --alert-info-bg: #e1f5fe;
+    --alert-info-text: #01579b;
+    --alert-info-border: #03a9f4;
+
+    --alert-warning-bg: #fff3e0;
+    --alert-warning-text: #e65100;
+    --alert-warning-border: #ef6c00;
+
+    --alert-danger-bg: #ffebee;
+    --alert-danger-text: #c62828;
+    --alert-danger-border: #f44336;
   }
   
-  /* Dark Theme Toggle */
+  /* Dark Theme Toggle - from Numix GTK Theme */
   .dark-theme {
-    --background: #303030;
-    --card: #3a3a3a;
-    --text-primary: #eee;
-    --text-secondary: #ccc;
+    /* Base Colors */
+    --background: #444444;
+    --base: #333333;
+    --card: #333333;
+    --text-primary: #eeeeee;
+    --text-secondary: #dddddd;
     --accent: #f0544c;
-    --border: #505050;
-    --input-focus-shadow: rgba(240, 84, 76, 0.2);
+    --selected-bg: #f0544c;
+    --selected-fg: #ffffff;
+    --border: rgba(255, 255, 255, 0.1);
+    --button-border: rgba(255, 255, 255, 0.15);
+    --input-focus-shadow: rgba(240, 84, 76, 0.3);
     --disabled-opacity: 0.3;
     --disabled-cursor: not-allowed;
-  
-    --alert-success-bg: #2a4d40;
-    --alert-success-text: #b2f1d1;
-    --alert-success-border: #2a4d40;
-  
-    --alert-info-bg: #22405e;
-    --alert-info-text: #a8d5f1;
-    --alert-info-border: #22405e;
-  
-    --alert-warning-bg: #594d00;
-    --alert-warning-text: #f5e092;
-    --alert-warning-border: #594d00;
-  
-    --alert-danger-bg: #581c0c;
-    --alert-danger-text: #f1b0b7;
-    --alert-danger-border: #581c0c;
+
+    /* Tooltip Colors (same as light) */
+    --tooltip-bg: #444444;
+    --tooltip-fg: #eeeeee;
+
+    /* Status Colors (same as light theme) */
+    --color-info: #03a9f4;
+    --color-warning: #ef6c00;
+    --color-error: #f44336;
+    --color-success: #4caf50;
+    --color-question: #673ab7;
+    --color-link: #fc6f5d;
+
+    /* Alerts - Darker versions for dark theme */
+    --alert-success-bg: #1b5e20;
+    --alert-success-text: #c8e6c9;
+    --alert-success-border: #4caf50;
+
+    --alert-info-bg: #01579b;
+    --alert-info-text: #b3e5fc;
+    --alert-info-border: #03a9f4;
+
+    --alert-warning-bg: #e65100;
+    --alert-warning-text: #ffe0b2;
+    --alert-warning-border: #ef6c00;
+
+    --alert-danger-bg: #b71c1c;
+    --alert-danger-text: #ffcdd2;
+    --alert-danger-border: #f44336;
   }
   
   
@@ -140,17 +177,17 @@
     padding: 0.75rem;
     font-size: 1rem;
     border: 1px solid var(--border);
-    border-radius: 0.375rem;
+    border-radius: var(--roundness);
     background-color: var(--card);
     color: var(--text-primary);
     box-sizing: border-box;
     transition: border-color 0.2s ease, background-color 0.3s ease, color 0.3s ease;
   }
-  
+
   .n-input:focus {
     outline: none;
     border-color: var(--accent);
-    box-shadow: 0 0 0 2px var(--input-focus-shadow);
+    box-shadow: 0 0 0 var(--roundness) var(--input-focus-shadow);
   }
   
   .n-label {
@@ -168,56 +205,57 @@
   
   .n-button {
     display: inline-flex;
-    /* display: inline-block; */
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
-    padding: 0.5rem 1rem;
+    padding: calc(var(--spacing) + 1px) calc(var(--spacing) * 2);
     font-weight: 600;
     text-align: center;
-    border: none;
-    /* border: 1px solid var(--border); */
-    border-radius: 0.375rem;
+    border: 1px solid var(--button-border);
+    border-radius: var(--roundness);
     cursor: pointer;
-    transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.3s ease, transform 0.2s ease;
+    transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.3s ease, transform 0.2s ease, border-color 0.2s ease;
   }
-  
+
   .n-button:hover {
     background-color: var(--accent);
     color: #fff;
+    border-color: var(--accent);
     transform: translateY(-1px) scale(1.02);
     box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.15);
   }
-  
+
   .n-button:active {
     transform: translateY(0) scale(0.98);
     box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.2);
   }
-  
+
   .n-button-primary {
     background-color: var(--accent);
     color: white;
+    border-color: color-mix(in srgb, var(--accent) 70%, black);
   }
-  
+
   .n-button-primary:hover {
     background-color: color-mix(in srgb, var(--accent) 80%, black);
+    border-color: color-mix(in srgb, var(--accent) 60%, black);
   }
-  
+
   .n-button-secondary {
     background-color: transparent;
     color: var(--accent);
     border: 2px solid var(--accent);
   }
-  
+
   .n-button-secondary:hover {
     background-color: color-mix(in srgb, var(--accent) 20%, transparent);
     color: white;
   }
-  
+
   .n-button-rounded {
     border-radius: 2rem;
   }
-  
+
   .n-button-disabled {
     background-color: #9ca3af;
     color: white;
@@ -235,13 +273,13 @@
   
   .n-card {
     background-color: var(--card);
-    border-radius: 0.5rem;
+    border-radius: var(--roundness);
     padding: 1.5rem;
     box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.08);
     transition: background-color 0.3s ease;
     margin-bottom: 1rem;
   }
-  
+
   .n-card-square {
     border-radius: 0;
   }
@@ -255,7 +293,7 @@
     position: relative;
     padding: 1rem 1.25rem;
     margin-bottom: 1rem;
-    border-radius: 0.375rem;
+    border-radius: var(--roundness);
     border: 1px solid transparent;
   }
   
@@ -311,16 +349,16 @@
   
   .n-progress {
     background-color: #e0e0e0;
-    border-radius: 0.5rem;
+    border-radius: var(--roundness);
     height: 1rem;
     overflow: hidden;
     margin-bottom: 1rem;
   }
-  
+
   .n-progress-bar {
     background-color: var(--accent);
     height: 100%;
-    border-radius: 0.5rem;
+    border-radius: var(--roundness);
     transition: width 0.5s ease;
     width: 0;
     display: flex;
@@ -407,7 +445,7 @@
     padding: 1rem;
     margin: 1rem 0;
     border-left: 0.25rem solid var(--accent);
-    border-radius: 0.375rem;
+    border-radius: var(--roundness);
     background-color: color-mix(in srgb, var(--accent) 10%, var(--background));
     color: var(--text-primary);
     font-style: italic;
@@ -434,4 +472,185 @@
     stroke: currentColor;
     fill: none;
     vertical-align: middle;
+  }
+
+
+  /* ==========================================================================
+     Status Colors & Links
+     ========================================================================== */
+
+  .n-text-info {
+    color: var(--color-info);
+  }
+
+  .n-text-warning {
+    color: var(--color-warning);
+  }
+
+  .n-text-error {
+    color: var(--color-error);
+  }
+
+  .n-text-success {
+    color: var(--color-success);
+  }
+
+  .n-bg-info {
+    background-color: var(--color-info);
+    color: white;
+  }
+
+  .n-bg-warning {
+    background-color: var(--color-warning);
+    color: white;
+  }
+
+  .n-bg-error {
+    background-color: var(--color-error);
+    color: white;
+  }
+
+  .n-bg-success {
+    background-color: var(--color-success);
+    color: white;
+  }
+
+  /* Links */
+  a, .n-link {
+    color: var(--color-link);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  a:hover, .n-link:hover {
+    color: color-mix(in srgb, var(--color-link) 80%, black);
+    text-decoration: underline;
+  }
+
+  a:visited, .n-link:visited {
+    color: color-mix(in srgb, var(--color-link) 70%, purple);
+  }
+
+
+  /* ==========================================================================
+     Tooltips
+     ========================================================================== */
+
+  .n-tooltip {
+    position: relative;
+    display: inline-block;
+  }
+
+  .n-tooltip .n-tooltip-text {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    z-index: 1000;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--tooltip-bg);
+    color: var(--tooltip-fg);
+    padding: calc(var(--spacing) - 1px) var(--spacing);
+    border-radius: var(--roundness);
+    font-size: 0.875rem;
+    white-space: nowrap;
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.3);
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+  }
+
+  .n-tooltip .n-tooltip-text::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: var(--tooltip-bg) transparent transparent transparent;
+  }
+
+  .n-tooltip:hover .n-tooltip-text {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  /* Tooltip positions */
+  .n-tooltip-bottom .n-tooltip-text {
+    bottom: auto;
+    top: 125%;
+  }
+
+  .n-tooltip-bottom .n-tooltip-text::after {
+    top: auto;
+    bottom: 100%;
+    border-color: transparent transparent var(--tooltip-bg) transparent;
+  }
+
+  .n-tooltip-left .n-tooltip-text {
+    left: auto;
+    right: 125%;
+    top: 50%;
+    bottom: auto;
+    transform: translateY(-50%);
+  }
+
+  .n-tooltip-left .n-tooltip-text::after {
+    left: 100%;
+    top: 50%;
+    margin-left: 0;
+    margin-top: -5px;
+    border-color: transparent transparent transparent var(--tooltip-bg);
+  }
+
+  .n-tooltip-right .n-tooltip-text {
+    left: 125%;
+    top: 50%;
+    bottom: auto;
+    transform: translateY(-50%);
+  }
+
+  .n-tooltip-right .n-tooltip-text::after {
+    right: 100%;
+    top: 50%;
+    left: auto;
+    margin-left: 0;
+    margin-top: -5px;
+    border-color: transparent var(--tooltip-bg) transparent transparent;
+  }
+
+
+  /* ==========================================================================
+     Scrollbar Styling
+     ========================================================================== */
+
+  /* Webkit browsers (Chrome, Safari, Edge) */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: color-mix(in srgb, var(--base) 40%, var(--background));
+    border-radius: var(--roundness);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: color-mix(in srgb, var(--text-secondary) 50%, transparent);
+    border-radius: var(--roundness);
+    border: 2px solid color-mix(in srgb, var(--base) 40%, var(--background));
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: color-mix(in srgb, var(--text-secondary) 70%, transparent);
+  }
+
+  ::-webkit-scrollbar-thumb:active {
+    background: var(--text-secondary);
+  }
+
+  /* Firefox */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: color-mix(in srgb, var(--text-secondary) 50%, transparent) color-mix(in srgb, var(--base) 40%, var(--background));
   }
